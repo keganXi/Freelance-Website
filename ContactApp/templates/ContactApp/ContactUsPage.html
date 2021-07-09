@@ -1,0 +1,104 @@
+{% extends "Home/base.html" %}
+{% load static %}
+
+{% block head %}
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="{% static 'ContactApp/javascript/contactPageScript.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'ContactApp/css/ContactUsPageCss.css' %}" type="text/css">
+{% endblock head %}
+
+{% block title %}webapp_coder | Contact Us{% endblock title %}
+
+
+{% block body %}
+<!--- IF EMAIL WAS SENT --->
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == "success" %}
+            <div class="email-message">
+                <p>{{ message }}</p>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+
+<div class="icon-bar">
+    <a href="https://www.facebook.com/Webapp_coder-103192227996543/" target="_blank" class="facebook">
+        <i class="fa fa-facebook">
+            <img src="{% static 'home/Images/facebook(1).png' %}" width="25px" height="25px">
+        </i>
+    </a> 
+    <a href="https://twitter.com/webappcoder" class="twitter">
+        <i class="fa fa-twitter">
+            <img src="{% static 'home/Images/twitter(1).png' %}" width="25px" height="25px">
+        </i>
+    </a> 
+    <a href="https://www.instagram.com/webapp_coder/" target="_blank" class="google">
+        <i class="fa fa-google">
+            <img src="{% static 'home/Images/instagram-sketched.png' %}" width="25px" height="25px">
+        </i>
+    </a> 
+    <a href="https://za.linkedin.com/in/kegan-overberg-aa9575173" target="_blank" class="linkedin">
+        <i class="fa fa-linkedin">
+            <img src="{% static 'home/Images/linkedin.png' %}" width="25px" height="25px">
+        </i>
+    </a> 
+</div>
+
+
+<!--- NAV BOOTSTRAP CODE --->
+<nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+    <a class="navbar-brand" href="{% url 'home' %}" id="nav-color-text">
+        <img src="{% static 'Home/Images/images (21).jpeg' %}" id="brand-image">webapp_coder
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="{% url 'home' %}" id="nav-color-text">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="{% url 'services-page' %}" id="nav-color-text">Services</a>
+            <a class="nav-item nav-link" href="{% url 'about-page' %}" id="nav-color-text">About</a>
+            <a class="nav-item nav-link active" href="" id="nav-color-text">Contact Us</a>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <main>
+        <header class="header-wrapper">
+            <h1 id="head">Contact Us</h1>
+            <p class="text-muted">Let's start building! You can fill in all the required information in the contact form
+                below and we'll get back to you in 24 hours.</p>
+        </header>
+
+        <section>
+            <form method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col">
+                        <label>Full Name*</label>
+                        <input type="text" class="form-control" name="full_name">
+                    </div>
+                    <div class="col">
+                        <label>Email Address*</label><br>
+                        <input type="email" class="form-control" name="email">
+                    </div>
+                </div>
+                <label>Company Name</label><br>
+                <input type="text" class="form-control" id="InputCompany1" aria-describedby="companyHelp" name="company_name">
+                
+                <label>Where did you hear about us?</label><br>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="referrelHelp" name="referrel">
+                <label>Message*</label><br>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
+                <button type="Submit" value="submit" class="btn btn-outline-primary btn-lg btn-block" id="send-email">Send</button>
+            </form>
+        </section>
+    </main>
+</div>
+
+
+{% endblock body %}

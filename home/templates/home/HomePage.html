@@ -1,0 +1,70 @@
+{% extends "Home/base.html" %}
+{% load static %}
+
+
+{% block head %}
+
+    <link rel="stylesheet" href="{% static 'Home/css/HomePageCss.css' %}" type="text/css">
+{% endblock head %}
+
+
+{% block title %}
+    webapp_coder
+{% endblock title %}
+
+
+{% block body %}
+
+    <!--- SOCIAL MEDIA SIDE BAR --->
+    <div class="icon-bar">
+        <a href="https://www.facebook.com/Webapp_coder-103192227996543/" target="_blank" class="facebook">
+            <i class="fa fa-facebook">
+                <img src="{% static 'home/Images/facebook(1).png' %}" width="25px" height="25px">
+            </i>
+        </a> 
+        <a href="https://twitter.com/webappcoder" class="twitter">
+            <i class="fa fa-twitter">
+                <img src="{% static 'home/Images/twitter(1).png' %}" width="25px" height="25px">
+            </i>
+        </a> 
+        <a href="https://www.instagram.com/webapp_coder/" target="_blank" class="google">
+            <i class="fa fa-google">
+                <img src="{% static 'home/Images/instagram-sketched.png' %}" width="25px" height="25px">
+            </i>
+        </a> 
+        <a href="https://za.linkedin.com/in/kegan-overberg-aa9575173" target="_blank" class="linkedin">
+            <i class="fa fa-linkedin">
+                <img src="{% static 'home/Images/linkedin.png' %}" width="25px" height="25px">
+            </i>
+        </a> 
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+        <a class="navbar-brand" href="#" id="nav-color-text">
+            <img src="{% static 'Home/Images/images (21).jpeg' %}" id="brand-image">webapp_coder
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="{% url 'home' %}" id="nav-color-text">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="{% url 'services-page' %}" id="nav-color-text">Services</a>
+                <a class="nav-item nav-link" href="{% url 'about-page' %}" id="nav-color-text">About</a>
+                <a class="nav-item nav-link" href="{% url 'contact-us-page' %}" id="nav-color-text">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container" id="landing-page-header">
+        <h1>Building Quality<br>Websites for your business</h1>
+        <p>Don't know where to start? Enquire and we'll get back to you shortly.</p>
+        <a href="{% url 'contact-us-page' %}">
+            <button type="button" class="btn btn-primary" id="en-btn">Enquire</button>
+        </a>
+    </div>
+                  
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+{% endblock body %}

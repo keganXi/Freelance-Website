@@ -1,0 +1,275 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+
+{% block head %}
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="{% static 'services/javascript/service_style.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'services/css/ServicesCssPage.css' %}" type="text/css">
+{% endblock head %}
+
+{% block title %}
+    webapp_coder | Services
+{% endblock title %}
+
+
+{% block body %}
+<!--- IF EMAIL WAS SENT --->
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == "success" %}
+            <div class="email-message">
+                <p>{{ message }}</p>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+<!--- NAV BOOTSTRAP CODE --->
+<nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+    <a class="navbar-brand" href="{% url 'home' %}" id="nav-color-text">
+        <img src="{% static 'Home/Images/images (21).jpeg' %}" id="brand-image">webapp_coder
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="{% url 'home' %}" id="nav-color-text">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="" id="nav-color-text">Services</a>
+            <a class="nav-item nav-link" href="{% url 'about-page' %}" id="nav-color-text">About</a>
+            <a class="nav-item nav-link" href="{% url 'contact-us-page' %}" id="nav-color-text">Contact Us</a>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <main>
+        <header class="header-wrapper">
+            <h1 id="head">Our<br>Services</h1>
+        </header>
+
+
+        <section>
+            <div class="row">
+                
+                <div class="col" id="section-info-block">
+                    <h2>We cater to all your website needs whether your a startup, blogger,
+                        local or established enterprise.<h2>
+                </div>
+
+                <div class="col" id="section-info">
+                    <div class="div-block">
+                        <h1>CMS<img src="{% static 'services/images/blog.png' %}" id="service-icon"></h1>
+                        <div class="container">
+                            <p class="text-muted">What is CMS? CMS (Content Management System) is 
+                                a software application that can be used to manage the creation and modification
+                                 of digital content. CMS's are typically used for enterprise content management 
+                                and web content management. <a href="https://en.wikipedia.org/wiki/Content_management_system" target="_blank">
+                                    Learn more</a>
+                            </p><br>
+                            <p class="text-muted">With CMS you're saving money by writing content and making simple changers
+                                on your own and leaving you with more control over your website 
+                                without paying a developer to write the content manually.</p>
+
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col">
+                    <div class="div-block">
+                        <h2 id="swa-header">Scalable<br>Web Applications<img src="{% static 'services/images/app.png' %}" id="service-icon"></h2>
+                        <div class="container">
+                            <p class="text-muted">Web Applications or Web Apps is a client-server computer program that
+                                the client runs in a web browser. Common web applications include
+                                webmail, online retail sales, online banking, and online auctions and social media platforms. <a href="https://en.wikipedia.org/wiki/Web_application" target="_blank">
+                                Learn more</a>
+                            </p>
+                            <br>
+                            <p class="text-muted">Your idea should'nt just be an idea we can help bring it to life by building a
+                                 sophisticated Web Application that meets all your requirements with reliable backend
+                                 technologies and slick frontend design that can scale with ease.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" id="swa-div">
+                    <div class="swa-block">
+                        <h1><Strong>Let's talk</Strong></h1>
+                        <a href="{% url 'contact-us-page' %}" class="link-contact">
+                            <button type="button" class="btn btn-block btn-outline-light" id="send-message-btn">
+                                    <h4 id="contact-us-btn">Contact Us</h4>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                
+                <div class="col" id="section-wd-block">
+                    
+                </div>
+
+                <div class="col" id="section-info">
+                    <div class="div-block">
+                        <h2 id="website-design-header">Website<br>Design<img src="{% static 'services/images/writing.png' %}" id="service-icon"></h2>
+                        <div class="container">
+                            <p class="text-muted">What is web design? Web design encompasses
+                                many different skills and disciplines in the production and
+                                maintenance of websites.<br>
+                                The different areas of web design include web graphic design; interface
+                                design; authoring, including standardised code and proprietary software; 
+                                UX (user experience) design; and SEO (search engine optimization). <a href="https://en.wikipedia.org/wiki/Web_design" taget="_blank">
+                                Learn more</a>
+                            </p><br>
+                            <p class="text-muted">First impressions are are important thats why
+                                 the first thing your online customer should see is a website that
+                                looks great, you dont have to be the biggest coffee shop or 
+                                restaurant etc. But with a great looking website you give the impression
+                                that you are.</p>
+
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tools-wrapper shadow-lg">
+                <div class="row">
+                    
+                    <div class="col">
+                        <div class="div-block">
+                            <h2 id="website-seo-header">SEO</h2>
+                            <div class="container">
+                                <p class="text-muted">Search engine optimization is the process
+                                    of increasing the quality of traffic by increasing the visibility
+                                    of your website or web page to users of a web search engine.<br>
+                                    SEO refers the the improvement of unpaid results and excludes
+                                    direct traffic/vistors and the purchase of paid placement.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="col" id="section-info">
+                        <div class="div-block">
+                            <h2 id="website-analytics-header">Analytical<br>Tools</h2>
+                            <div class="container">
+                                <p class="text-muted">With Analytical tools you can keep track of all your data that flows through
+                                    your website e.g. web traffic, volumns or to plan how to market your website's services or products.<br>
+                                    Analytics are a very powerful to to gain insight on what's going on in your website, it's a tool that every
+                                    business should utilize.</p>
+                            </div>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </section>
+
+    </main>
+
+</div>
+
+
+<footer class="position-absolute">
+    <div class="container">
+        <div class="business-info-wrapper">
+            <div class="row">
+                <div class="col">
+                    <div class="quote-div">
+                        <h4><Strong>Get Your Free Quote</Strong></h4>
+                        <small>Have any questions? Ask us anything and we'll get back to you as soon
+                            as possible.</small>
+                    </div>
+
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Name*" aria-label="Username" required=True aria-describedby="basic-addon1" name="name">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Email Address*" aria-label="Email Address" required=True aria-describedby="basic-addon1" name="email">
+                        </div>
+
+                        <div class="input-group">
+                            <textarea class="form-control" placeholder="Message" aria-label="With textarea" required=True name="message"></textarea>
+                        </div>
+                        <br>
+                        <button type="Submit" value="submit" class="btn btn-block btn-outline-light" id="send-message-btn">Send Message</button>
+                    </form>
+                    
+                </div>
+                <div class="col">
+                    
+                    <ul>
+                        <h5><strong>Services</strong></h5>
+                        <li>Scalable Web Applications</li>
+                        <li>E-commerce</li>
+                        <li>Informational websites</li>
+                        <li>CMS</li>
+                        <li>Web design</li>
+                        <li>SEO</li>
+                        <li>Analytical Tools</li>
+                        <li>Maintenance</li>
+                        <li>Website deployment</li>
+                    </ul><br>
+                </div>
+
+                <div class="col">
+                    <h5>
+                        <img src="{% static 'home/images/images (21).jpeg' %}" id="brand-logo">
+                        webapp_coder<br>
+                        <small>Building scalable web applications for businesses and ideas.</small>
+                    </h5><br>
+                    <h5><strong>Contact Information</strong></h5>
+                    <p>Phone Number: (071) 150-0692<br>
+                        Email Address: overbergsoftware@Gmail.com
+                    </p><br>
+
+                    <h5><strong>Social Media</strong></h5>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/Webapp_coder-103192227996543/" target="_blank">
+                            <i class="facebook">
+                                <img id="social-media-img" src="{% static 'Home/images/facebook(1).png'%}">
+                            </i>
+                        </a>
+
+                        <a href="https://www.instagram.com/webapp_coder/" target="_blank">
+                            <i class="instagram">
+                                <img id="social-media-img" src="{% static 'Home/images/instagram-sketched.png'%}">
+                            </i>
+                        </a>
+
+                        <a href="https://twitter.com/webappcoder">
+                            <i class="twitter">
+                                <img id="social-media-img" src="{% static 'Home/images/twitter(1).png'%}">
+                            </i>
+                        </a>
+
+                        <a href="https://za.linkedin.com/in/kegan-overberg-aa9575173" target="_blank">
+                            <i class="linkedin">
+                                <img id="social-media-img" src="{% static 'Home/images/linkedin.png'%}">
+                            </i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</footer>
+
+
+
+{% endblock body %}

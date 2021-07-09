@@ -1,0 +1,182 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block head %}
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="{% static 'home/javascript/aboutPageScript.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'home/css/AboutPageCss.css' %}" type="text/css">
+{% endblock head %}
+
+
+{% block title %}
+    webapp_coder | About
+{% endblock title %}
+
+
+{% block body %}
+<!--- IF EMAIL WAS SENT --->
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == "success" %}
+            <div class="email-message">
+                <p>{{ message }}</p>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+<!--- NAV BOOTSTRAP CODE --->
+<nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+    <a class="navbar-brand" href="{% url 'home' %}" id="nav-color-text">
+        <img src="{% static 'Home/Images/images (21).jpeg' %}" id="brand-image">webapp_coder
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="{% url 'home' %}" id="nav-color-text">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="{% url 'services-page' %}" id="nav-color-text">Services</a>
+            <a class="nav-item nav-link active" href="" id="nav-color-text">About</a>
+            <a class="nav-item nav-link" href="{% url 'contact-us-page' %}" id="nav-color-text">Contact Us</a>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <main>
+        <header class="header-wrapper">
+            <h1 id="head">About<br>what we do?</h1>
+        </header>
+
+        <section>
+            <div class="row">
+                <div class="col" id="contact-block">
+                    <div class="lets-talk-block">
+                        <h1><Strong>Let's talk</Strong></h1>
+                        <a href="{% url 'contact-us-page' %}" class="link-contact">
+                            <button type="button" class="btn btn-block btn-outline-light" id="send-message-btn">
+                                    <h4 id="contact-us-btn">Contact Us</h4>
+                            </button>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <p class="content-block">We aim to make our clients happy and with everything shifting online its 
+                        important that your business shift that way aswell, Thats where we come in.<br>
+                        We offer all your website needs from building full scale web applications to web
+                        design and web maintenance.<br><br>
+                        It's not only important that your business website looks great on a laptop or desktop
+                        but on mobile aswell, thats why we make sure that your website has a responsive UI (user interface)
+                        that fits on all device screens so that your online users have the best experience
+                        on all devices.<br><br>
+                        Now with your website up running there are still many things you can take advantage of
+                        and one of those things are analytical tools, now with analytics you can find not only how much
+                        users you get to your website but also other key information that can help you market
+                        your business and take it to the next level.</p>
+                
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+
+
+
+
+<footer class="position-absolute">
+    <div class="container">
+        <div class="business-info-wrapper">
+            <div class="row">
+                <div class="col">
+                    <div class="quote-div">
+                        <h4><Strong>Get Your Free Quote</Strong></h4>
+                        <small>Have any questions? Ask us anything and we'll get back to you as soon
+                            as possible.</small>
+                    </div>
+
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Name*" aria-label="Username" required=True aria-describedby="basic-addon1" name="name">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Email Address*" aria-label="Email Address" required=True aria-describedby="basic-addon1" name="email">
+                        </div>
+
+                        <div class="input-group">
+                            <textarea class="form-control" placeholder="Message" aria-label="With textarea" required=True name="message"></textarea>
+                        </div>
+                        <br>
+                        <button type="Submit" value="submit" class="btn btn-block btn-outline-light" id="send-message-btn">Send Message</button>
+                    </form>
+                    
+                </div>
+                <div class="col">
+                    
+                    <ul>
+                        <h5><strong>Services</strong></h5>
+                        <li>Scalable Web Applications</li>
+                        <li>E-commerce</li>
+                        <li>Informational websites</li>
+                        <li>CMS</li>
+                        <li>Web design</li>
+                        <li>SEO</li>
+                        <li>Analytical Tools</li>
+                        <li>Maintenance</li>
+                        <li>Website deployment</li>
+                    </ul><br>
+                </div>
+
+                <div class="col">
+                    <h5>
+                        <img src="{% static 'home/images/images (21).jpeg' %}" id="brand-logo">
+                        webapp_coder<br>
+                        <small>Building scalable web applications for businesses and ideas.</small>
+                    </h5><br>
+                    <h5><strong>Contact Information</strong></h5>
+                    <p>Phone Number: (071) 150-0692<br>
+                        Email Address: overbergsoftware@Gmail.com
+                    </p><br>
+
+                    <h5><strong>Social Media</strong></h5>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/Webapp_coder-103192227996543/" target="_blank">
+                            <i class="facebook">
+                                <img id="social-media-img" src="{% static 'Home/images/facebook(1).png'%}">
+                            </i>
+                        </a>
+
+                        <a href="https://www.instagram.com/webapp_coder/" target="_blank">
+                            <i class="instagram">
+                                <img id="social-media-img" src="{% static 'Home/images/instagram-sketched.png'%}">
+                            </i>
+                        </a>
+
+                        <a href="https://twitter.com/webappcoder">
+                            <i class="twitter">
+                                <img id="social-media-img" src="{% static 'Home/images/twitter(1).png'%}">
+                            </i>
+                        </a>
+
+                        <a href="https://za.linkedin.com/in/kegan-overberg-aa9575173" target="_blank">
+                            <i class="linkedin">
+                                <img id="social-media-img" src="{% static 'Home/images/linkedin.png'%}">
+                            </i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+
+        <div>
+    </div>
+
+</footer>
+{% endblock body %}
